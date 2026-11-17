@@ -9,7 +9,6 @@ import (
 	"github.com/jackc/pgx/v5"
 )
 
-// postgresql://postgres.qsnoulrdvpkoflxxxccn:[YOUR-PASSWORD]@aws-0-ap-northeast-1.pooler.supabase.com:5432/postgres
 func NewDbSupabase(ctx context.Context, cfg *config.Config) (*pgx.Conn, error) {
 	dsn := fmt.Sprintf("postgresql://%v:%v@%v:%v/%v", cfg.DbConfig.DbUser, cfg.DbConfig.DbPassword, cfg.DbConfig.DbHost, cfg.DbConfig.DbPort, cfg.DbConfig.DbName)
 	conn, err := pgx.Connect(ctx, dsn)
